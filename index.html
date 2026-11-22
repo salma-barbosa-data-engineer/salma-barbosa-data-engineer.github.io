@@ -52,6 +52,13 @@
 
     /* HERO */
     header.hero { padding: 96px 0 72px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+    .avatar {
+      width: 240px; height: 240px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--accent); box-shadow: 0 0 0 8px rgba(79, 209, 197, 0.12);
+    }
+    .open-to { display: inline-block; margin-top: 18px; font-size: 0.85rem; color: #68d391; }
+    .open-to::before { content: "● "; }
     .tag { font-family: var(--mono); color: var(--accent); font-size: 0.9rem; margin-bottom: 12px; }
     .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; margin-bottom: 16px; }
     .hero p.lead { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin-bottom: 32px; }
@@ -145,6 +152,11 @@
     .cert { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
     .cert h3 { font-size: 1rem; margin-bottom: 4px; }
     .cert p { color: var(--muted); font-size: 0.9rem; }
+    .cert.highlight { border-color: var(--accent); background: linear-gradient(135deg, rgba(79, 209, 197, 0.12), var(--card)); }
+    .badge {
+      display: inline-block; font-family: var(--mono); font-size: 0.7rem; color: var(--gold);
+      border: 1px solid var(--gold); border-radius: 999px; padding: 1px 8px; margin-bottom: 8px;
+    }
 
     /* CONTATO */
     .contact { text-align: center; }
@@ -156,7 +168,9 @@
     @media (max-width: 760px) {
       nav ul { display: none; }
       .about { grid-template-columns: 1fr; }
-      header.hero { padding: 64px 0 48px; }
+      header.hero { padding: 48px 0 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-grid .avatar { order: -1; width: 150px; height: 150px; }
     }
   </style>
 </head>
@@ -177,17 +191,23 @@
 
   <header class="hero">
     <div class="container">
-      <p class="tag">&gt; Engenheiro de Dados</p>
+     <div class="hero-grid">
+      <div>
+      <p class="tag">&gt; Engenheiro de Dados · GCP · BigQuery · Dataflow · Dataform</p>
       <h1>Olá, eu sou <span style="color: var(--accent)">Salmã de Oliveira Barbosa</span>.<br />Construo pipelines de dados confiáveis na nuvem.</h1>
       <p class="lead">
-        Ingestão de dados Oracle → BigQuery, arquitetura medalhão e transformações com Dataform na Google Cloud.
-        Aqui estão os projetos que desenvolvo para resolver problemas reais com dados.
+        Ingestão de sistemas Oracle para o BigQuery com Dataflow (Apache Beam) e arquitetura medalhão no Dataform,
+        processando até <strong>160 milhões de linhas por execução</strong> na área da saúde.
       </p>
       <div class="btns">
         <a href="#projetos" class="btn primary">Ver projetos</a>
         <a href="https://github.com/salma-barbosa-data-engineer" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
         <a href="https://www.linkedin.com/in/salma-barbosa-data-engineer" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
       </div>
+      <span class="open-to">Aberto a oportunidades remotas e relocação (Canadá, Europa, EUA)</span>
+      </div>
+      <img class="avatar" src="foto.jpg" alt="Foto de Salmã de Oliveira Barbosa" width="240" height="240" />
+     </div>
 
       <div class="pipeline" aria-label="Fluxo de dados da arquitetura medalhão">
         <div class="stage src">Oracle</div><span class="arrow">→</span>
@@ -207,27 +227,30 @@
       <div class="about">
         <div>
           <p>
-            Sou Engenheiro de Dados e trabalho com ingestão de dados de bancos Oracle para o BigQuery,
-            organizando o lakehouse em camadas <strong>raw, bronze, silver e gold</strong> e usando o
-            <strong>Dataform</strong> para versionar e orquestrar as transformações SQL.
+            Sou Engenheiro de Dados com mais de 4 anos na área de dados. Hoje construo pipelines ELT na
+            Google Cloud para a área da saúde: levo dados de sistemas Oracle corporativos, incluindo um
+            sistema de gestão hospitalar, para o BigQuery, organizados em camadas
+            <strong>raw, bronze, silver e gold</strong> com <strong>Dataflow</strong> e <strong>Dataform</strong>.
           </p>
           <p>
-            Antes da tecnologia, passei mais de 7 anos na manutenção industrial como mecânico e eletromecânico.
-            Essa bagagem me ensinou a pensar em processos, confiabilidade e diagnóstico de falhas, algo que
-            levo para cada pipeline: dado bom é dado que chega certo, no horário e com rastreabilidade.
+            Trabalho com SQL avançado, Python e CI/CD, sempre com foco em qualidade e governança de dados:
+            reconciliação de contagens, validações de integridade e documentação de regras de negócio junto ao
+            time de Governança.
           </p>
           <p>
-            Migrei para TI, atuei como analista de dados e hoje construo a infraestrutura que alimenta análises
-            e decisões de negócio.
+            Antes da tecnologia, foram mais de 9 anos na manutenção industrial como técnico e eletromecânico.
+            Essa bagagem me ensinou a investigar a causa raiz dos problemas, algo que levo para cada pipeline:
+            dado bom é dado que chega certo, no horário e com rastreabilidade.
           </p>
         </div>
         <ul class="facts">
           <li><strong>Foco:</strong> Engenharia de Dados na GCP</li>
-          <li><strong>Stack principal:</strong> BigQuery, Dataform, SQL, Python</li>
-          <li><strong>Formação:</strong> Bacharel em Tecnologia da Informação</li>
-          <li><strong>Pós:</strong> Gestão e Análise Estratégica de Dados</li>
+          <li><strong>Stack principal:</strong> BigQuery, Dataflow, Dataform, SQL, Python</li>
+          <li><strong>Formação:</strong> Bacharel em TI (Univesp)</li>
+          <li><strong>Cursando:</strong> Bacharelado em Inteligência Artificial (Univesp)</li>
+          <li><strong>Pós:</strong> Gestão e Análise Estratégica de Dados (PUC Minas)</li>
           <li><strong>Local:</strong> São Paulo, Brasil</li>
-          <li><strong>Idiomas:</strong> Português (nativo), Inglês (em evolução)</li>
+          <li><strong>Idiomas:</strong> Português (nativo), Inglês (intermediário)</li>
         </ul>
       </div>
     </div>
@@ -256,24 +279,26 @@
       <p class="section-sub">Uma transição de carreira construída passo a passo.</p>
       <div class="timeline">
         <div class="tl-item">
-          <span class="when">2026 — atual</span>
-          <h3>Engenheiro de Dados</h3>
-          <p>Ingestão Oracle → BigQuery, arquitetura medalhão e transformações com Dataform na GCP.</p>
+          <span class="when">mar 2026 — atual</span>
+          <h3>Engenheiro de Dados I — A.C.Camargo Cancer Center</h3>
+          <p>Pipelines diários do sistema hospitalar (Oracle) para o BigQuery com Dataflow/Apache Beam, até 160 milhões de linhas por execução.
+             Arquitetura medalhão no Dataform com modelo gold validado pelo negócio, fonte única para mais de 8 consumidores de dados.</p>
         </div>
         <div class="tl-item">
-          <span class="when">2 anos</span>
-          <h3>Analista de Dados — SulAmérica</h3>
-          <p>Análises, indicadores e relatórios para áreas de negócio.</p>
+          <span class="when">jan 2024 — mar 2026</span>
+          <h3>Analista de Dados Pleno — SulAmérica Seguros</h3>
+          <p>Automação de consultas SQL e pipelines ETL em BigQuery e Oracle, eliminando mais de 15 horas de trabalho manual por semana.
+             Dashboards estratégicos no Looker Studio sobre a rede de prestadores de saúde.</p>
         </div>
         <div class="tl-item">
-          <span class="when">1 ano</span>
-          <h3>Estagiário de Dados</h3>
-          <p>Primeiro contato profissional com SQL, BI e tratamento de dados.</p>
+          <span class="when">ago 2022 — ago 2023</span>
+          <h3>Estagiário de Governança de Dados e BI — Liberty Seguros</h3>
+          <p>SQL complexo em Oracle, dashboards em Power BI (DAX) para 3 unidades de sinistros e relatórios self-service no MicroStrategy.</p>
         </div>
         <div class="tl-item">
-          <span class="when">7+ anos</span>
-          <h3>Mecânico de Manutenção / Eletromecânico</h3>
-          <p>Manutenção industrial, diagnóstico de falhas e melhoria de processos.</p>
+          <span class="when">2012 — 2022</span>
+          <h3>Técnico de Manutenção Industrial / Eletromecânico</h3>
+          <p>Mais de 9 anos nas indústrias gráfica, de borracha e de embalagens metálicas: hidráulica, pneumática e automação industrial.</p>
         </div>
       </div>
     </div>
@@ -284,21 +309,40 @@
       <h2>Certificações e formação</h2>
       <p class="section-sub">Aprendizado contínuo.</p>
       <div class="certs">
+        <div class="cert highlight">
+          <span class="badge">Em andamento</span>
+          <h3>Bacharelado em Inteligência Artificial</h3>
+          <p>Univesp · 2026 — em andamento</p>
+        </div>
         <div class="cert">
+          <span class="badge">Em preparação</span>
           <h3>Google Cloud Associate Cloud Engineer</h3>
-          <p>Em preparação</p>
+          <p>Certificação Google Cloud</p>
+        </div>
+        <div class="cert">
+          <span class="badge">Em andamento</span>
+          <h3>Engenharia de Dados 4.0</h3>
+          <p>Data Science Academy · mais de 400 horas</p>
         </div>
         <div class="cert">
           <h3>Pós-graduação em Gestão e Análise Estratégica de Dados</h3>
-          <p>Concluída</p>
+          <p>PUC Minas · 2022 — 2023</p>
         </div>
         <div class="cert">
           <h3>Bacharelado em Tecnologia da Informação</h3>
-          <p>Concluído</p>
+          <p>Univesp · 2022 — 2025</p>
         </div>
         <div class="cert">
-          <h3>Tecnólogo em Automação Industrial — SENAI</h3>
-          <p>Concluído</p>
+          <h3>Tecnólogo em Automação Industrial</h3>
+          <p>Faculdade SENAI Mariano Ferraz · 2013 — 2016</p>
+        </div>
+        <div class="cert">
+          <h3>Técnico em Eletromecânica</h3>
+          <p>SENAI</p>
+        </div>
+        <div class="cert">
+          <h3>Programa de Inglês</h3>
+          <p>Bayswater College, Canadá · 2025</p>
         </div>
       </div>
     </div>
@@ -328,10 +372,12 @@
     // =========================================================
 
     const SKILLS = [
-      { group: "Cloud (GCP)", items: ["BigQuery", "Dataform", "Cloud Storage", "IAM"], learning: ["Dataflow", "Composer", "Pub/Sub"] },
-      { group: "Linguagens", items: ["SQL", "Python"], learning: ["Apache Beam"] },
-      { group: "Bancos de dados", items: ["Oracle", "BigQuery"], learning: ["PostgreSQL"] },
-      { group: "Engenharia & DevOps", items: ["Arquitetura Medalhão", "Modelagem de Dados"], learning: ["Git", "Docker", "dbt", "Terraform"] },
+      { group: "Cloud (GCP)", items: ["BigQuery", "Dataflow", "Apache Beam", "Dataform", "Cloud Workflows", "Cloud Storage"], learning: ["Pub/Sub", "Composer"] },
+      { group: "Transformação & Linguagens", items: ["SQL avançado", "Python", "PL/SQL", "dbt", "PySpark", "Pandas"], learning: [] },
+      { group: "Engenharia de Dados", items: ["Arquitetura Medalhão", "ELT/ETL", "Cargas full e incrementais", "Particionamento", "Qualidade de dados", "Linhagem", "Governança"], learning: [] },
+      { group: "DevOps", items: ["Git", "Azure DevOps", "CI/CD", "Linux"], learning: ["Docker", "Terraform"] },
+      { group: "BI & Analytics", items: ["Looker Studio", "Power BI (DAX)", "MicroStrategy"], learning: [] },
+      { group: "Inteligência Artificial", items: ["Desenvolvimento assistido por GenAI"], learning: ["Machine Learning", "LLMs"] },
     ];
 
     // status: "done" (concluído), "wip" (em andamento), "planned" (planejado)
