@@ -50,6 +50,16 @@
     nav ul a { color: var(--muted); font-size: 0.95rem; }
     nav ul a:hover { color: var(--text); text-decoration: none; }
 
+
+    .lang-switch { display: flex; gap: 6px; margin-left: 20px; }
+    .lang-btn {
+      background: none; border: 2px solid transparent; border-radius: 6px; padding: 2px; cursor: pointer;
+      line-height: 0; opacity: 0.55; transition: 0.2s;
+    }
+    .lang-btn:hover { opacity: 0.9; }
+    .lang-btn.active { opacity: 1; border-color: var(--accent); }
+    nav .container > ul { margin-left: auto; }
+
     /* HERO */
     header.hero { padding: 96px 0 72px; }
     .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
@@ -180,12 +190,16 @@
     <div class="container">
       <a href="#" class="logo">salma<span>.</span>barbosa<span>()</span></a>
       <ul>
-        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#sobre" data-i18n="nav_about">Sobre</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#trajetoria">Trajetória</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="#projetos" data-i18n="nav_projects">Projetos</a></li>
+        <li><a href="#trajetoria" data-i18n="nav_career">Trajetória</a></li>
+        <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
       </ul>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-btn" data-lang="pt" title="Português" aria-label="Português"><svg viewBox="0 0 28 20" width="28" height="20" aria-hidden="true"><rect width="28" height="20" rx="2" fill="#009c3b"/><path d="M14 2.5 25.5 10 14 17.5 2.5 10z" fill="#ffdf00"/><circle cx="14" cy="10" r="4.6" fill="#002776"/><path d="M9.6 9.2c3-.9 6.3-.4 8.8 1.3" stroke="#fff" stroke-width=".9" fill="none"/></svg></button>
+        <button type="button" class="lang-btn" data-lang="en" title="English" aria-label="English"><svg viewBox="0 0 28 20" width="28" height="20" aria-hidden="true"><rect width="28" height="20" rx="2" fill="#fff"/><rect y="0.0" width="28" height="1.538" fill="#b22234"/><rect y="3.077" width="28" height="1.538" fill="#b22234"/><rect y="6.154" width="28" height="1.538" fill="#b22234"/><rect y="9.231" width="28" height="1.538" fill="#b22234"/><rect y="12.308" width="28" height="1.538" fill="#b22234"/><rect y="15.385" width="28" height="1.538" fill="#b22234"/><rect y="18.462" width="28" height="1.538" fill="#b22234"/><rect width="12" height="10.77" fill="#3c3b6e"/><circle cx="1.5" cy="1.4" r=".5" fill="#fff"/><circle cx="3.75" cy="1.4" r=".5" fill="#fff"/><circle cx="6.0" cy="1.4" r=".5" fill="#fff"/><circle cx="8.25" cy="1.4" r=".5" fill="#fff"/><circle cx="10.5" cy="1.4" r=".5" fill="#fff"/><circle cx="1.5" cy="3.4" r=".5" fill="#fff"/><circle cx="3.75" cy="3.4" r=".5" fill="#fff"/><circle cx="6.0" cy="3.4" r=".5" fill="#fff"/><circle cx="8.25" cy="3.4" r=".5" fill="#fff"/><circle cx="10.5" cy="3.4" r=".5" fill="#fff"/><circle cx="1.5" cy="5.4" r=".5" fill="#fff"/><circle cx="3.75" cy="5.4" r=".5" fill="#fff"/><circle cx="6.0" cy="5.4" r=".5" fill="#fff"/><circle cx="8.25" cy="5.4" r=".5" fill="#fff"/><circle cx="10.5" cy="5.4" r=".5" fill="#fff"/><circle cx="1.5" cy="7.4" r=".5" fill="#fff"/><circle cx="3.75" cy="7.4" r=".5" fill="#fff"/><circle cx="6.0" cy="7.4" r=".5" fill="#fff"/><circle cx="8.25" cy="7.4" r=".5" fill="#fff"/><circle cx="10.5" cy="7.4" r=".5" fill="#fff"/><circle cx="1.5" cy="9.4" r=".5" fill="#fff"/><circle cx="3.75" cy="9.4" r=".5" fill="#fff"/><circle cx="6.0" cy="9.4" r=".5" fill="#fff"/><circle cx="8.25" cy="9.4" r=".5" fill="#fff"/><circle cx="10.5" cy="9.4" r=".5" fill="#fff"/></svg></button>
+      </div>
     </div>
   </nav>
 
@@ -193,18 +207,18 @@
     <div class="container">
      <div class="hero-grid">
       <div>
-      <p class="tag">&gt; Engenheiro de Dados · GCP · BigQuery · Dataflow · Dataform</p>
-      <h1>Olá, eu sou <span style="color: var(--accent)">Salmã de Oliveira Barbosa</span>.<br />Construo pipelines de dados confiáveis na nuvem.</h1>
-      <p class="lead">
+      <p class="tag" data-i18n="hero_tag">&gt; Engenheiro de Dados · GCP · BigQuery · Dataflow · Dataform</p>
+      <h1 data-i18n="hero_title">Olá, eu sou <span style="color: var(--accent)">Salmã de Oliveira Barbosa</span>.<br />Construo pipelines de dados confiáveis na nuvem.</h1>
+      <p class="lead" data-i18n="hero_lead">
         Ingestão de sistemas Oracle para o BigQuery com Dataflow (Apache Beam) e arquitetura medalhão no Dataform,
         processando até <strong>160 milhões de linhas por execução</strong> na área da saúde.
       </p>
       <div class="btns">
-        <a href="#projetos" class="btn primary">Ver projetos</a>
+        <a href="#projetos" class="btn primary" data-i18n="hero_cta">Ver projetos</a>
         <a href="https://github.com/salma-barbosa-data-engineer" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
         <a href="https://www.linkedin.com/in/salma-barbosa-data-engineer" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
       </div>
-      <span class="open-to">Aberto a oportunidades remotas e relocação (Canadá, Europa, EUA)</span>
+      <span class="open-to" data-i18n="hero_open">Aberto a oportunidades remotas e relocação (Canadá, Europa, EUA)</span>
       </div>
       <img class="avatar" src="foto.jpg" alt="Foto de Salmã de Oliveira Barbosa" width="200" height="200" />
      </div>
@@ -222,35 +236,35 @@
 
   <section id="sobre">
     <div class="container">
-      <h2>Sobre mim</h2>
-      <p class="section-sub">De mecânico de manutenção a engenheiro de dados.</p>
+      <h2 data-i18n="about_t">Sobre mim</h2>
+      <p class="section-sub" data-i18n="about_sub">De mecânico de manutenção a engenheiro de dados.</p>
       <div class="about">
         <div>
-          <p>
+          <p data-i18n="about_p1">
             Sou Engenheiro de Dados com mais de 4 anos na área de dados. Hoje construo pipelines ELT na
             Google Cloud para a área da saúde: levo dados de sistemas Oracle corporativos, incluindo um
             sistema de gestão hospitalar, para o BigQuery, organizados em camadas
             <strong>raw, bronze, silver e gold</strong> com <strong>Dataflow</strong> e <strong>Dataform</strong>.
           </p>
-          <p>
+          <p data-i18n="about_p2">
             Trabalho com SQL avançado, Python e CI/CD, sempre com foco em qualidade e governança de dados:
             reconciliação de contagens, validações de integridade e documentação de regras de negócio junto ao
             time de Governança.
           </p>
-          <p>
+          <p data-i18n="about_p3">
             Antes da tecnologia, foram mais de 9 anos na manutenção industrial como técnico e eletromecânico.
             Essa bagagem me ensinou a investigar a causa raiz dos problemas, algo que levo para cada pipeline:
             dado bom é dado que chega certo, no horário e com rastreabilidade.
           </p>
         </div>
         <ul class="facts">
-          <li><strong>Foco:</strong> Engenharia de Dados na GCP</li>
-          <li><strong>Stack principal:</strong> BigQuery, Dataflow, Dataform, SQL, Python</li>
-          <li><strong>Formação:</strong> Bacharel em TI (Univesp)</li>
-          <li><strong>Cursando:</strong> Bacharelado em Inteligência Artificial (Univesp)</li>
-          <li><strong>Pós:</strong> Gestão e Análise Estratégica de Dados (PUC Minas)</li>
-          <li><strong>Local:</strong> São Paulo, Brasil</li>
-          <li><strong>Idiomas:</strong> Português (nativo), Inglês (intermediário)</li>
+          <li data-i18n="f_focus"><strong>Foco:</strong> Engenharia de Dados na GCP</li>
+          <li data-i18n="f_stack"><strong>Stack principal:</strong> BigQuery, Dataflow, Dataform, SQL, Python</li>
+          <li data-i18n="f_degree"><strong>Formação:</strong> Bacharel em TI (Univesp)</li>
+          <li data-i18n="f_current"><strong>Cursando:</strong> Bacharelado em Inteligência Artificial (Univesp)</li>
+          <li data-i18n="f_post"><strong>Pós:</strong> Gestão e Análise Estratégica de Dados (PUC Minas)</li>
+          <li data-i18n="f_loc"><strong>Local:</strong> São Paulo, Brasil</li>
+          <li data-i18n="f_lang"><strong>Idiomas:</strong> Português (nativo), Inglês (intermediário)</li>
         </ul>
       </div>
     </div>
@@ -259,15 +273,15 @@
   <section id="skills">
     <div class="container">
       <h2>Skills</h2>
-      <p class="section-sub">Ferramentas que uso no dia a dia e as que estou aprendendo (borda tracejada).</p>
+      <p class="section-sub" data-i18n="skills_sub">Ferramentas que uso no dia a dia e as que estou aprendendo (borda tracejada).</p>
       <div class="skills" id="skills-grid"></div>
     </div>
   </section>
 
   <section id="projetos">
     <div class="container">
-      <h2>Projetos</h2>
-      <p class="section-sub">Cada projeto tem repositório com código, README e diagrama de arquitetura.</p>
+      <h2 data-i18n="proj_t">Projetos</h2>
+      <p class="section-sub" data-i18n="proj_sub">Cada projeto tem repositório com código, README e diagrama de arquitetura.</p>
       <div class="filters" id="filters"></div>
       <div class="projects" id="projects-grid"></div>
     </div>
@@ -275,30 +289,30 @@
 
   <section id="trajetoria">
     <div class="container">
-      <h2>Trajetória</h2>
-      <p class="section-sub">Uma transição de carreira construída passo a passo.</p>
+      <h2 data-i18n="career_t">Trajetória</h2>
+      <p class="section-sub" data-i18n="career_sub">Uma transição de carreira construída passo a passo.</p>
       <div class="timeline">
         <div class="tl-item">
-          <span class="when">mar 2026 — atual</span>
-          <h3>Engenheiro de Dados I — A.C.Camargo Cancer Center</h3>
-          <p>Pipelines diários do sistema hospitalar (Oracle) para o BigQuery com Dataflow/Apache Beam, até 160 milhões de linhas por execução.
+          <span class="when" data-i18n="w1">mar 2026 — atual</span>
+          <h3 data-i18n="j1">Engenheiro de Dados I — A.C.Camargo Cancer Center</h3>
+          <p data-i18n="d1">Pipelines diários do sistema hospitalar (Oracle) para o BigQuery com Dataflow/Apache Beam, até 160 milhões de linhas por execução.
              Arquitetura medalhão no Dataform com modelo gold validado pelo negócio, fonte única para mais de 8 consumidores de dados.</p>
         </div>
         <div class="tl-item">
-          <span class="when">jan 2024 — mar 2026</span>
-          <h3>Analista de Dados Pleno — SulAmérica Seguros</h3>
-          <p>Automação de consultas SQL e pipelines ETL em BigQuery e Oracle, eliminando mais de 15 horas de trabalho manual por semana.
+          <span class="when" data-i18n="w2">jan 2024 — mar 2026</span>
+          <h3 data-i18n="j2">Analista de Dados Pleno — SulAmérica Seguros</h3>
+          <p data-i18n="d2">Automação de consultas SQL e pipelines ETL em BigQuery e Oracle, eliminando mais de 15 horas de trabalho manual por semana.
              Dashboards estratégicos no Looker Studio sobre a rede de prestadores de saúde.</p>
         </div>
         <div class="tl-item">
-          <span class="when">ago 2022 — ago 2023</span>
-          <h3>Estagiário de Governança de Dados e BI — Liberty Seguros</h3>
-          <p>SQL complexo em Oracle, dashboards em Power BI (DAX) para 3 unidades de sinistros e relatórios self-service no MicroStrategy.</p>
+          <span class="when" data-i18n="w3">ago 2022 — ago 2023</span>
+          <h3 data-i18n="j3">Estagiário de Governança de Dados e BI — Liberty Seguros</h3>
+          <p data-i18n="d3">SQL complexo em Oracle, dashboards em Power BI (DAX) para 3 unidades de sinistros e relatórios self-service no MicroStrategy.</p>
         </div>
         <div class="tl-item">
           <span class="when">2012 — 2022</span>
-          <h3>Técnico de Manutenção Industrial / Eletromecânico</h3>
-          <p>Mais de 9 anos nas indústrias gráfica, de borracha e de embalagens metálicas: hidráulica, pneumática e automação industrial.</p>
+          <h3 data-i18n="j4">Técnico de Manutenção Industrial / Eletromecânico</h3>
+          <p data-i18n="d4">Mais de 9 anos nas indústrias gráfica, de borracha e de embalagens metálicas: hidráulica, pneumática e automação industrial.</p>
         </div>
       </div>
     </div>
@@ -306,43 +320,43 @@
 
   <section id="certificacoes">
     <div class="container">
-      <h2>Certificações e formação</h2>
-      <p class="section-sub">Aprendizado contínuo.</p>
+      <h2 data-i18n="cert_t">Certificações e formação</h2>
+      <p class="section-sub" data-i18n="cert_sub">Aprendizado contínuo.</p>
       <div class="certs">
         <div class="cert highlight">
-          <span class="badge">Em andamento</span>
-          <h3>Bacharelado em Inteligência Artificial</h3>
-          <p>Univesp · 2026 — em andamento</p>
+          <span class="badge" data-i18n="b1">Em andamento</span>
+          <h3 data-i18n="c1">Bacharelado em Inteligência Artificial</h3>
+          <p data-i18n="c1d">Univesp · 2026 — em andamento</p>
         </div>
         <div class="cert">
-          <span class="badge">Em preparação</span>
+          <span class="badge" data-i18n="b2">Em preparação</span>
           <h3>Google Cloud Associate Cloud Engineer</h3>
-          <p>Certificação Google Cloud</p>
+          <p data-i18n="c2d">Certificação Google Cloud</p>
         </div>
         <div class="cert">
-          <span class="badge">Em andamento</span>
-          <h3>Engenharia de Dados 4.0</h3>
-          <p>Data Science Academy · mais de 400 horas</p>
+          <span class="badge" data-i18n="b3">Em andamento</span>
+          <h3 data-i18n="c3">Engenharia de Dados 4.0</h3>
+          <p data-i18n="c3d">Data Science Academy · mais de 400 horas</p>
         </div>
         <div class="cert">
-          <h3>Pós-graduação em Gestão e Análise Estratégica de Dados</h3>
+          <h3 data-i18n="c4">Pós-graduação em Gestão e Análise Estratégica de Dados</h3>
           <p>PUC Minas · 2022 — 2023</p>
         </div>
         <div class="cert">
-          <h3>Bacharelado em Tecnologia da Informação</h3>
+          <h3 data-i18n="c5">Bacharelado em Tecnologia da Informação</h3>
           <p>Univesp · 2022 — 2025</p>
         </div>
         <div class="cert">
-          <h3>Tecnólogo em Automação Industrial</h3>
+          <h3 data-i18n="c6">Tecnólogo em Automação Industrial</h3>
           <p>Faculdade SENAI Mariano Ferraz · 2013 — 2016</p>
         </div>
         <div class="cert">
-          <h3>Técnico em Eletromecânica</h3>
+          <h3 data-i18n="c7">Técnico em Eletromecânica</h3>
           <p>SENAI</p>
         </div>
         <div class="cert">
-          <h3>Programa de Inglês</h3>
-          <p>Bayswater College, Canadá · 2025</p>
+          <h3 data-i18n="c8">Programa de Inglês</h3>
+          <p data-i18n="c8d">Bayswater College, Canadá · 2025</p>
         </div>
       </div>
     </div>
@@ -350,10 +364,10 @@
 
   <section id="contato" class="contact">
     <div class="container">
-      <h2>Vamos conversar?</h2>
-      <p>Estou aberto a oportunidades em Engenharia de Dados. Fique à vontade para me chamar.</p>
+      <h2 data-i18n="contact_t">Vamos conversar?</h2>
+      <p data-i18n="contact_p">Estou aberto a oportunidades em Engenharia de Dados. Fique à vontade para me chamar.</p>
       <div class="btns">
-        <a href="mailto:salmadeoliveirabarbosa@gmail.com" class="btn primary">Enviar e-mail</a>
+        <a href="mailto:salmadeoliveirabarbosa@gmail.com" class="btn primary" data-i18n="contact_mail">Enviar e-mail</a>
         <a href="https://www.linkedin.com/in/salma-barbosa-data-engineer" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
         <a href="https://github.com/salma-barbosa-data-engineer" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
       </div>
@@ -361,7 +375,7 @@
   </section>
 
   <footer>
-    <p>© <span id="year"></span> Salmã de Oliveira Barbosa · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</p>
+    <p data-i18n="footer">© <span id="year"></span> Salmã de Oliveira Barbosa · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</p>
   </footer>
 
   <script>
@@ -386,6 +400,9 @@
         title: "Pipeline Oracle → BigQuery com Arquitetura Medalhão",
         status: "wip",
         description: "Ingestão de um banco Oracle (Docker) para o BigQuery, com camadas raw, bronze, silver e gold e transformações versionadas no Dataform.",
+        title_en: "Oracle → BigQuery Pipeline with Medallion Architecture",
+        description_en: "Ingestion from an Oracle database (Docker) into BigQuery, with raw, bronze, silver and gold layers and version-controlled transformations in Dataform.",
+        highlights_en: ["Incremental loads based on the last-updated timestamp", "Data quality tests (assertions) in Dataform", "Architecture diagram and data dictionary in the README"],
         highlights: [
           "Carga incremental por data de atualização",
           "Testes de qualidade (assertions) no Dataform",
@@ -399,6 +416,9 @@
         title: "ETL de Dados Públicos com Python",
         status: "planned",
         description: "Extração de uma API pública (ex.: dados abertos do governo), tratamento com Python e carga no BigQuery, com dashboard no Looker Studio.",
+        title_en: "Public Data ETL with Python",
+        description_en: "Extraction from a public API (e.g. government open data), processing with Python and loading into BigQuery, with a Looker Studio dashboard.",
+        highlights_en: ["Modular code tested with pytest", "Daily scheduling", "Public dashboard with the KPIs"],
         highlights: [
           "Código modular e testado com pytest",
           "Agendamento diário",
@@ -412,6 +432,9 @@
         title: "Streaming com Pub/Sub e Dataflow",
         status: "planned",
         description: "Pipeline em tempo real que recebe eventos via Pub/Sub, processa com Apache Beam no Dataflow e grava no BigQuery.",
+        title_en: "Streaming with Pub/Sub and Dataflow",
+        description_en: "Real-time pipeline that receives events through Pub/Sub, processes them with Apache Beam on Dataflow and writes to BigQuery.",
+        highlights_en: ["Time windows and aggregations", "Handling of invalid messages (dead-letter)", "Infrastructure as code with Terraform"],
         highlights: [
           "Janelas de tempo e agregações",
           "Tratamento de mensagens inválidas (dead-letter)",
@@ -423,52 +446,170 @@
       },
     ];
 
-    // ---------- Renderização (não precisa editar) ----------
-    const STATUS_LABEL = { done: "● concluído", wip: "● em andamento", planned: "○ planejado" };
+    // ---------- Renderização e idiomas (não precisa editar) ----------
+    // Textos em inglês dos elementos marcados com data-i18n no HTML.
+    // O português fica no próprio HTML; para mudar um texto em inglês, edite aqui.
+    const I18N_EN = {
+      "nav_about": "About",
+      "nav_projects": "Projects",
+      "nav_career": "Experience",
+      "nav_contact": "Contact",
+      "hero_tag": "&gt; Data Engineer · GCP · BigQuery · Dataflow · Dataform",
+      "hero_title": "Hi, I'm <span style=\"color: var(--accent)\">Salmã de Oliveira Barbosa</span>.<br>I build reliable data pipelines in the cloud.",
+      "hero_lead": "Ingesting Oracle systems into BigQuery with Dataflow (Apache Beam) and a medallion architecture in Dataform, processing up to <strong>160 million rows per run</strong> in the healthcare industry.",
+      "hero_cta": "View projects",
+      "hero_open": "Open to remote opportunities and relocation (Canada, Europe, USA)",
+      "about_t": "About me",
+      "about_sub": "From maintenance mechanic to data engineer.",
+      "about_p1": "I'm a Data Engineer with 4+ years of experience in data. Today I build ELT pipelines on Google Cloud for the healthcare industry: I move data from enterprise Oracle systems, including a hospital management system, into BigQuery, organized in <strong>raw, bronze, silver and gold</strong> layers with <strong>Dataflow</strong> and <strong>Dataform</strong>.",
+      "about_p2": "I work with advanced SQL, Python and CI/CD, always focused on data quality and governance: row-count reconciliation, integrity checks and documenting business rules together with the Data Governance team.",
+      "about_p3": "Before tech, I spent 9+ years in industrial maintenance as a technician and electromechanic. That background taught me to look for the root cause of every problem, and I bring it to every pipeline: good data arrives correct, on time and fully traceable.",
+      "f_focus": "<strong>Focus:</strong> Data Engineering on GCP",
+      "f_stack": "<strong>Main stack:</strong> BigQuery, Dataflow, Dataform, SQL, Python",
+      "f_degree": "<strong>Education:</strong> B.Sc. in Information Technology (Univesp)",
+      "f_current": "<strong>Currently studying:</strong> B.Sc. in Artificial Intelligence (Univesp)",
+      "f_post": "<strong>Postgraduate:</strong> Data Management and Strategic Analysis (PUC Minas)",
+      "f_loc": "<strong>Location:</strong> São Paulo, Brazil",
+      "f_lang": "<strong>Languages:</strong> Portuguese (native), English (intermediate)",
+      "skills_sub": "Tools I use every day, and the ones I'm learning (dashed border).",
+      "proj_t": "Projects",
+      "proj_sub": "Each project has a repository with code, a README and an architecture diagram.",
+      "career_t": "Experience",
+      "career_sub": "A career change built step by step.",
+      "w1": "Mar 2026 — present",
+      "j1": "Data Engineer I — A.C.Camargo Cancer Center",
+      "d1": "Daily pipelines from the hospital system (Oracle) to BigQuery with Dataflow/Apache Beam, up to 160 million rows per run. Medallion architecture in Dataform with a business-validated gold model, the single source of truth for 8+ data consumers.",
+      "w2": "Jan 2024 — Mar 2026",
+      "j2": "Data Analyst (Mid-level) — SulAmérica Seguros",
+      "d2": "Automated SQL queries and ETL pipelines on BigQuery and Oracle, eliminating 15+ hours of manual work per week. Strategic Looker Studio dashboards on the healthcare provider network.",
+      "w3": "Aug 2022 — Aug 2023",
+      "j3": "Data Governance & BI Intern — Liberty Seguros",
+      "d3": "Complex SQL on Oracle, Power BI (DAX) dashboards for 3 claims units and self-service reports in MicroStrategy.",
+      "j4": "Industrial Maintenance Technician / Electromechanic",
+      "d4": "9+ years in the printing, rubber and metal packaging industries: hydraulics, pneumatics and industrial automation.",
+      "cert_t": "Certifications & education",
+      "cert_sub": "Continuous learning.",
+      "b1": "In progress",
+      "c1": "B.Sc. in Artificial Intelligence",
+      "c1d": "Univesp · 2026 — in progress",
+      "b2": "Preparing",
+      "c2d": "Google Cloud certification",
+      "b3": "In progress",
+      "c3": "Data Engineering 4.0",
+      "c3d": "Data Science Academy · 400+ hours",
+      "c4": "Postgraduate degree in Data Management and Strategic Analysis",
+      "c5": "B.Sc. in Information Technology",
+      "c6": "Associate degree in Industrial Automation",
+      "c7": "Electromechanical Technician",
+      "c8": "English Program",
+      "c8d": "Bayswater College, Canada · 2025",
+      "contact_t": "Let's talk",
+      "contact_p": "I'm open to Data Engineering opportunities. Feel free to reach out.",
+      "contact_mail": "Send an e-mail",
+      "footer": "© <span id=\"year\"></span> Salmã de Oliveira Barbosa · Built with HTML, CSS and JavaScript · Hosted on GitHub Pages"
+    };
+
+    // Termos de skills e rótulos em inglês (o que não estiver aqui fica igual nos dois idiomas)
+    const TERMS_EN = {
+      "Transformação & Linguagens": "Transformation & Languages",
+      "Engenharia de Dados": "Data Engineering",
+      "Inteligência Artificial": "Artificial Intelligence",
+      "SQL avançado": "Advanced SQL",
+      "Arquitetura Medalhão": "Medallion Architecture",
+      "Cargas full e incrementais": "Full and incremental loads",
+      "Particionamento": "Partitioning",
+      "Qualidade de dados": "Data quality",
+      "Linhagem": "Data lineage",
+      "Governança": "Data governance",
+      "Desenvolvimento assistido por GenAI": "GenAI-assisted development",
+      "Todos": "All",
+    };
+
+    const UI = {
+      pt: { status: { done: "● concluído", wip: "● em andamento", planned: "○ planejado" }, code: "Código →", learning: "Estudando",
+            title: "Salmã de Oliveira Barbosa | Engenheiro de Dados", alt: "Foto de Salmã de Oliveira Barbosa" },
+      en: { status: { done: "● completed", wip: "● in progress", planned: "○ planned" }, code: "Code →", learning: "Learning",
+            title: "Salmã de Oliveira Barbosa | Data Engineer", alt: "Photo of Salmã de Oliveira Barbosa" },
+    };
+
+    let LANG = "pt";
+    let FILTER = "Todos";
+    const t = (s) => (LANG === "en" && TERMS_EN[s]) || s;
+    const pick = (obj, field) => (LANG === "en" && obj[field + "_en"]) || obj[field];
 
     function renderSkills() {
       document.getElementById("skills-grid").innerHTML = SKILLS.map(s => `
         <div class="skill-group">
-          <h3>${s.group}</h3>
+          <h3>${t(s.group)}</h3>
           <div class="chips">
-            ${s.items.map(i => `<span class="chip">${i}</span>`).join("")}
-            ${(s.learning || []).map(i => `<span class="chip learning" title="Estudando">${i}</span>`).join("")}
+            ${s.items.map(i => `<span class="chip">${t(i)}</span>`).join("")}
+            ${(s.learning || []).map(i => `<span class="chip learning" title="${UI[LANG].learning}">${t(i)}</span>`).join("")}
           </div>
         </div>`).join("");
     }
 
-    function renderProjects(filter = "Todos") {
-      const list = filter === "Todos" ? PROJECTS : PROJECTS.filter(p => p.tags.includes(filter));
-      document.getElementById("projects-grid").innerHTML = list.map(p => `
+    function renderProjects() {
+      const list = FILTER === "Todos" ? PROJECTS : PROJECTS.filter(p => p.tags.includes(FILTER));
+      document.getElementById("projects-grid").innerHTML = list.map(p => {
+        const highlights = pick(p, "highlights") || [];
+        return `
         <article class="project">
-          <span class="status ${p.status}">${STATUS_LABEL[p.status]}</span>
-          <h3>${p.title}</h3>
-          <p>${p.description}</p>
-          ${p.highlights?.length ? `<ul class="highlights">${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>` : ""}
-          <div class="chips">${p.tags.map(t => `<span class="chip">${t}</span>`).join("")}</div>
+          <span class="status ${p.status}">${UI[LANG].status[p.status]}</span>
+          <h3>${pick(p, "title")}</h3>
+          <p>${pick(p, "description")}</p>
+          ${highlights.length ? `<ul class="highlights">${highlights.map(h => `<li>${h}</li>`).join("")}</ul>` : ""}
+          <div class="chips">${p.tags.map(tag => `<span class="chip">${tag}</span>`).join("")}</div>
           <div class="links">
-            ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener">Código →</a>` : ""}
+            ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener">${UI[LANG].code}</a>` : ""}
             ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">Demo →</a>` : ""}
           </div>
-        </article>`).join("");
+        </article>`;
+      }).join("");
     }
 
     function renderFilters() {
       const tags = ["Todos", ...new Set(PROJECTS.flatMap(p => p.tags))];
-      const box = document.getElementById("filters");
-      box.innerHTML = tags.map((t, i) => `<button class="filter${i === 0 ? " active" : ""}" data-tag="${t}">${t}</button>`).join("");
-      box.addEventListener("click", e => {
-        if (!e.target.matches(".filter")) return;
-        box.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
-        e.target.classList.add("active");
-        renderProjects(e.target.dataset.tag);
-      });
+      document.getElementById("filters").innerHTML = tags
+        .map(tag => `<button class="filter${tag === FILTER ? " active" : ""}" data-tag="${tag}">${t(tag)}</button>`)
+        .join("");
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
-    renderSkills();
-    renderFilters();
-    renderProjects();
+    document.getElementById("filters").addEventListener("click", e => {
+      if (!e.target.matches(".filter")) return;
+      FILTER = e.target.dataset.tag;
+      renderFilters();
+      renderProjects();
+    });
+
+    function setLang(lang) {
+      LANG = lang === "en" ? "en" : "pt";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        if (el.dataset.pt === undefined) el.dataset.pt = el.innerHTML;
+        const en = I18N_EN[el.dataset.i18n];
+        el.innerHTML = LANG === "en" && en ? en : el.dataset.pt;
+      });
+      document.documentElement.lang = LANG === "en" ? "en" : "pt-BR";
+      document.title = UI[LANG].title;
+      document.querySelector(".avatar").alt = UI[LANG].alt;
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.querySelectorAll(".lang-btn").forEach(b => {
+        b.classList.toggle("active", b.dataset.lang === LANG);
+        b.setAttribute("aria-pressed", b.dataset.lang === LANG);
+      });
+      renderSkills();
+      renderFilters();
+      renderProjects();
+      try { localStorage.setItem("lang", LANG); } catch (e) {}
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+    // Idioma inicial: ?lang=en na URL, depois a última escolha do visitante, depois o idioma do navegador
+    let saved = null;
+    try { saved = localStorage.getItem("lang"); } catch (e) {}
+    const fromUrl = new URLSearchParams(location.search).get("lang");
+    const browserLang = (navigator.language || "pt").toLowerCase().startsWith("pt") ? "pt" : "en";
+    setLang(fromUrl || saved || browserLang);
   </script>
 </body>
 </html>
